@@ -7,6 +7,9 @@ USER node
 # Create app directory (with user `node`)
 RUN mkdir -p /home/node/app
 
+RUN cp /etc/letsencrypt/live/joseph-fanous.dev/privkey.pem /home/node/app
+RUN cp /etc/letsencrypt/live/joseph-fanous.dev/cert.pem /home/node/app
+
 WORKDIR /home/node/app
 
 # Install app dependencies
