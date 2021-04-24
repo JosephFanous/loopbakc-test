@@ -14,8 +14,8 @@ WORKDIR /home/node/app
 # where available (npm@5+)
 COPY --chown=node package*.json ./
 
-COPY --chown=node /etc/letsencrypt/live/joseph-fanous.dev/privkey.pem ./
-COPY --chown=node /etc/letsencrypt/live/joseph-fanous.dev/cert.pem ./
+COPY --chown=node privkey.pem ./
+COPY --chown=node cert.pem ./
 
 RUN npm install
 
