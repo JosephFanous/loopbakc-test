@@ -7,15 +7,15 @@ USER node
 # Create app directory (with user `node`)
 RUN mkdir -p /home/node/app
 
-RUN cp /etc/letsencrypt/live/joseph-fanous.dev/privkey.pem /home/node/app
-RUN cp /etc/letsencrypt/live/joseph-fanous.dev/cert.pem /home/node/app
-
 WORKDIR /home/node/app
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY --chown=node package*.json ./
+
+COPY --chown=node /etc/letsencrypt/live/joseph-fanous.dev/privkey.pem ./
+COPY --chown=node /etc/letsencrypt/live/joseph-fanous.dev/cert.pem ./
 
 RUN npm install
 
